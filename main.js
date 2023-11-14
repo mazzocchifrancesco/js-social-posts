@@ -60,6 +60,8 @@ const posts = [
 const container=document.getElementById("container");
 
 
+for (let i = 0; i < posts.length; i++) {
+   
 // creo post e aggiungo al dom
 const post=document.createElement("div");
 post.classList.add("post");
@@ -82,7 +84,7 @@ meta.append(metaIcon);
 // immagine profilo
 const proPic=document.createElement("img")
 proPic.classList.add("profile-pic");
-proPic.src=posts[0].author.image;
+proPic.src=posts[i].author.image;
 metaIcon.append(proPic);
 
 //meta data
@@ -93,19 +95,19 @@ meta.append(metaData);
 // autore
 const author=document.createElement("div");
 author.classList.add("post-meta__author");
-author.innerText=posts[0].author.name;
+author.innerText=posts[i].author.name;
 metaData.append(author);
 
 // data
 const data=document.createElement("div");
 data.classList.add("post-meta__time");
-data.innerText=posts[0].created;
+data.innerText=posts[i].created;
 metaData.append(data);
 
 // testo
 const text=document.createElement("div");
 text.classList.add("post__text");
-text.innerText=posts[0].content;
+text.innerText=posts[i].content;
 post.append(text);
 
 // immagine post
@@ -114,7 +116,7 @@ imgContainer.classList.add("post__image");
 post.append(imgContainer);
 
 const mainPic=document.createElement("img");
-mainPic.src=posts[0].media;
+mainPic.src=posts[i].media;
 imgContainer.append(mainPic);
 
 // post footer
@@ -133,7 +135,7 @@ subFooter.append(likes);
 const aLikes=document.createElement("a");
 aLikes.classList.add("like-button", "js-like-button");
 aLikes.href="#";
-aLikes.setAttribute("data-postid", posts[0].id);
+aLikes.setAttribute("data-postid", posts[i].id);
 likes.append(aLikes);
 
 const icone=document.createElement("i");
@@ -152,23 +154,10 @@ likesCounter.classList.add("likes__counter");
 
 const numLikes=document.createElement("b");
 numLikes.classList.add("js-likes-counter");
-numLikes.id="like-counter-"+posts[0].id
-numLikes.innerText=posts[0].likes;
+numLikes.id="like-counter-"+posts[i].id
+numLikes.innerText=posts[i].likes;
 
 likesCounter.append("Piace a", numLikes, "persone");
 subFooter.append(likesCounter);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
