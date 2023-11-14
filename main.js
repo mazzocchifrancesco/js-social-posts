@@ -58,6 +58,7 @@ const posts = [
 
 // dichiaro container
 const container=document.getElementById("container");
+let counter=0;
 
 
 for (let i = 0; i < posts.length; i++) {
@@ -132,12 +133,26 @@ const likes=document.createElement("div");
 likes.classList.add("likes__cta");
 subFooter.append(likes);
 
+// PULSANTE MI PIACE
+
 const aLikes=document.createElement("a");
 aLikes.classList.add("like-button", "js-like-button");
 aLikes.href="#";
 aLikes.setAttribute("data-postid", posts[i].id);
 likes.append(aLikes);
-aLikes.addEventListener("click", ()=> aLikes.classList.toggle("like-button--liked"));
+aLikes.addEventListener("click", function() {
+    aLikes.classList.toggle("like-button--liked");
+    if (counter==0) {
+        counter++;
+        posts[i].likes+=1;
+    }
+    else {
+        counter--;
+        posts[i].likes-=1;
+
+    }
+    numLikes.innerText=posts[i].likes;
+});
 
 const icone=document.createElement("i");
 icone.classList.add("like-button__icon", "fas", "fa-thumbs-up");
@@ -162,3 +177,5 @@ likesCounter.append("Piace a", numLikes, "persone");
 subFooter.append(likesCounter);
 
 }
+
+// FUNZIONI
