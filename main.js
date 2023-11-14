@@ -58,10 +58,16 @@ const posts = [
 
 // dichiaro container
 const container=document.getElementById("container");
-let counter=0;
+
+// array likes salvati
+const likesCliccati=[];
+
 
 
 for (let i = 0; i < posts.length; i++) {
+
+    // counter per check mi piace
+    let counter=0;
    
 // creo post e aggiungo al dom
 const post=document.createElement("div");
@@ -145,11 +151,11 @@ aLikes.addEventListener("click", function() {
     if (counter==0) {
         counter++;
         posts[i].likes+=1;
+        likesCliccati.push(posts[i].id)
     }
     else {
         counter--;
         posts[i].likes-=1;
-
     }
     numLikes.innerText=posts[i].likes;
 });
