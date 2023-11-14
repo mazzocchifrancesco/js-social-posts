@@ -137,6 +137,7 @@ aLikes.classList.add("like-button", "js-like-button");
 aLikes.href="#";
 aLikes.setAttribute("data-postid", posts[i].id);
 likes.append(aLikes);
+aLikes.addEventListener("click", ()=> aLikes.classList.toggle("like-button--liked"));
 
 const icone=document.createElement("i");
 icone.classList.add("like-button__icon", "fas", "fa-thumbs-up");
